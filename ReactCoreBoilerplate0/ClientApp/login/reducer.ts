@@ -37,7 +37,7 @@ interface IFailure {
 }
 
 
-type KnownAction = IInit | IRequest | IResponse | ISuccess | IFailure | never;
+type KnownAction = IInit | IRequest | IResponse | ISuccess | IFailure;
 
 const initialState: ILoginState = {
     indicators: {
@@ -57,6 +57,7 @@ export function reducer(
     switch (action.type) {
         case LoginActions.Init:
             return initialState;
+        case LoginActions.Request:
             var indicators = cloneIndicators();
             indicators.operationLoading = true;
             return { ...currentState, indicators };
