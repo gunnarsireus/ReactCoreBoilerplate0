@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 import { RouteComponentProps, withRouter } from "react-router";
 import { IPersonModel } from "@Models/IPersonModel";
 import { PersonStore } from "@Store/PersonStore";
-import { ApplicationState, reducers } from "@Store/index";
+import { ApplicationState, reducers } from "../store";
 import { connect } from "react-redux";
 import { PagingBar } from "@Components/shared/PagingBar";
 import PersonEditor from "@Components/person/PersonEditor";

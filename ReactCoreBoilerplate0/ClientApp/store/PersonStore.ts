@@ -1,6 +1,6 @@
 ﻿import { clone } from "@Utils";
 import { Action, Reducer } from "redux";
-import { AppThunkAction, AppThunkActionAsync } from "./index";
+import { AppThunkAction, AppThunkActionAsync } from "../store";
 import PersonService from "@Services/PersonService";
 import { IPersonModel } from "@Models/IPersonModel";
 import { wait } from "domain-wait";

@@ -1,6 +1,6 @@
 ﻿import { ILoginModel } from "@Models/ILoginModel";
 import Loader from "@Components/shared/Loader";
-import { ApplicationState } from "@Store/index";
+import { ApplicationState } from "../store";
 import { LoginStore } from "@Store/LoginStore";
 import "@Styles/main.scss";;
 import * as React from "react";

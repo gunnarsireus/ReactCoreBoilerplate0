@@ -3,7 +3,7 @@ import { IServiceUser } from "@Models/IServiceUser";
 import { clone } from "@Utils";
 import { Action, Reducer } from "redux";
 import AccountService from "@Services/AccountService";
-import { AppThunkAction } from "./index";
+import { AppThunkAction } from "../store";
 
 export module LoginStore {
 

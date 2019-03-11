@@ -43,7 +43,7 @@ function renderApp() {
     ReactDOM.hydrate(
         <AppContainer>
             <Provider store={ store }>
-                <ConnectedRouter history={ history } children={ routes } />
+                <ConnectedRouter history={history}>{routes}</ConnectedRouter>
             </Provider>
         </AppContainer>,
         document.getElementById('react-app')

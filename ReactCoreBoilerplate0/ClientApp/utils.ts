@@ -1,4 +1,4 @@
-﻿import { AppThunkActionAsync } from "@Store/index";
+﻿import { AppThunkActionAsync } from "./store";
 
 declare var process: any;
 
