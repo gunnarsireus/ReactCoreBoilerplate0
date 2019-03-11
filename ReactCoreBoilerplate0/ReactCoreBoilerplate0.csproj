@@ -31,6 +31,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\common\helpers\reducerRegistry.ts" />
     <None Remove="ClientApp\components\person\PersonEditor.tsx" />
     <None Remove="ClientApp\components\shared\AppComponent.tsx" />
     <None Remove="ClientApp\layouts\guestLayout.tsx" />
@@ -54,6 +55,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="ClientApp\common\helpers\reducerRegistry.ts" />
     <Content Include="ClientApp\components\person\PersonEditor.tsx" />
     <Content Include="ClientApp\models\IPersonModel.ts" />
     <Content Include="ClientApp\models\Result.ts" />
@@ -109,6 +111,10 @@
         <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       </ResolvedFileToPublish>
     </ItemGroup>
+  </Target>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="npm run-script build:dev" />
   </Target>
 
 </Project>
