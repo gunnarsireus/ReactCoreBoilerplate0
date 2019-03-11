@@ -14,7 +14,7 @@ import { ModalComponent } from "@Components/shared/ModalComponent";
 import AwesomeDebouncePromise from "awesome-debounce-promise";
 import { getPromiseFromAction } from "@Utils";
 
-type Props = RouteComponentProps<{}> & typeof PersonStore.actionCreators & PersonStore.IState;
+type Props = RouteComponentProps<{}> & typeof PersonStore.actionCreators & PersonStore.IPersonState;
 
 interface IState {
     searchTerm: string;

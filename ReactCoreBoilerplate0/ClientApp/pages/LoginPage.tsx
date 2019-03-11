@@ -1,16 +1,28 @@
 ﻿import { ILoginModel } from "@Models/ILoginModel";
 import Loader from "@Components/shared/Loader";
 import { ApplicationState } from "../store";
-import { LoginStore } from "@Store/LoginStore";
-import "@Styles/main.scss";;
+import { loginInit, loginRequest, loginResponse, loginSuccess, loginFailure } from "../login/actionCreators";
+import AccountService from "@Services/AccountService";
+import "@Styles/main.scss";
 import * as React from "react";
 import { Helmet } from "react-helmet";
 import { connect } from "react-redux";
 import { Redirect, RouteComponentProps, withRouter } from "react-router";
 import bind from 'bind-decorator';
 import { Form } from "@Components/shared/Form";
+import registerReducer from "../login/reducer";
 
-type Props = RouteComponentProps<{}> & typeof LoginStore.actionCreators & LoginStore.IState;
+registerReducer();
+
+const mapDispatchToProps = {
+    loginInit,
+    loginRequest,
+    loginResponse,
+    loginSuccess,
+    loginFailure
+};
+
+type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & RouteComponentProps<{}>;
 
 class LoginPage extends React.Component<Props, {}> {
 
@@ -23,7 +35,7 @@ class LoginPage extends React.Component<Props, {}> {
 
     componentDidMount() {
         
-        this.props.init();
+        this.props.loginInit();
         
         if (this.elLoader) {
             this.elLoader.forceUpdate();
@@ -36,12 +48,18 @@ class LoginPage extends React.Component<Props, {}> {
         if (this.elForm.isValid()) {
             var data = this.elForm.getData<ILoginModel>();
             this.props.loginRequest(data);
+            var result = await AccountService.login(data);
+            if (result.hasErrors) {
+                this.props.loginFailure();
+                return;
+            }
+            this.props.loginSuccess(result.value);
         }
     }
 
     render() {
 
-        if (this.props.indicators.loginSuccess) {
+        if (this.props.login.loginSuccess) {
             return <Redirect to="/"/>;
         }
 
@@ -51,7 +69,7 @@ class LoginPage extends React.Component<Props, {}> {
                 <title>Login page - RCB</title>
             </Helmet>
             
-            <Loader ref={x => this.elLoader = x} show={this.props.indicators.operationLoading} />
+            <Loader ref={x => this.elLoader = x} show={this.props.login.operationLoading} />
 
             <div id="loginContainer">
 
@@ -76,9 +94,6 @@ class LoginPage extends React.Component<Props, {}> {
     }
 }
 
-var component = connect(
-    (state: ApplicationState) => state.login, // Selects which state properties are merged into the component's props
-    LoginStore.actionCreators // Selects which action creators are merged into the component's props
-)(LoginPage as any);
+const mapStateToProps = ({ login, person }: ApplicationState) => ({ login: login.indicators, person: person.people });
 
-export default (withRouter(component as any) as any as typeof LoginPage)
+export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);

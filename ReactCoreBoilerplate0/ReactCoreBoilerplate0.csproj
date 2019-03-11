@@ -32,7 +32,6 @@
 
   <ItemGroup>
     <None Remove="ClientApp\common\helpers\reducerRegistry.ts" />
-    <None Remove="ClientApp\components\person\PersonEditor.tsx" />
     <None Remove="ClientApp\components\shared\AppComponent.tsx" />
     <None Remove="ClientApp\layouts\guestLayout.tsx" />
     <None Remove="ClientApp\models\ILoginModel.ts" />
@@ -41,13 +40,13 @@
     <None Remove="ClientApp\models\Result.ts" />
     <None Remove="ClientApp\pages\ExamplePage.tsx" />
     <None Remove="ClientApp\pages\HomePage.tsx" />
-    <None Remove="ClientApp\pages\loginPage.tsx" />
+    <None Remove="ClientApp\pages\LoginPage.tsx" />
+    <None Remove="ClientApp\pages\PersonEditor.tsx" />
     <None Remove="ClientApp\services\AccountService.ts" />
     <None Remove="ClientApp\components\shared\ErrorBoundary.tsx" />
     <None Remove="ClientApp\components\shared\PagingBar.tsx" />
     <None Remove="ClientApp\components\shared\topMenu.tsx" />
     <None Remove="ClientApp\pages\layoutPage.tsx" />
-    <None Remove="ClientApp\store\loginStore.ts" />
     <None Remove="ClientApp\store\PersonStore.ts" />
     <None Remove="ClientApp\styles\authorizedLayout.scss" />
     <None Remove="ClientApp\styles\guestLayout.scss" />
@@ -57,12 +56,13 @@
   <ItemGroup>
     <Content Include="ClientApp\common\helpers\reducerRegistry.ts" />
     <Content Include="ClientApp\components\person\PersonEditor.tsx" />
+    <Content Include="ClientApp\pages\LoginPage.tsx" />
+    <Content Include="ClientApp\person\components\PersonEditor.tsx" />
     <Content Include="ClientApp\models\IPersonModel.ts" />
     <Content Include="ClientApp\models\Result.ts" />
     <Content Include="ClientApp\components\shared\AppRoute.tsx" />
     <Content Include="ClientApp\layouts\GuestLayout.tsx" />
     <Content Include="ClientApp\pages\HomePage.tsx" />
-    <Content Include="ClientApp\pages\LoginPage.tsx" />
     <Content Include="ClientApp\components\shared\ErrorBoundary.tsx" />
     <Content Include="ClientApp\components\shared\PagingBar.tsx" />
     <Content Include="ClientApp\components\shared\TopMenu.tsx" />
@@ -80,7 +80,6 @@
     <TypeScriptCompile Include="ClientApp\models\IServiceUser.ts" />
     <TypeScriptCompile Include="ClientApp\services\AccountService.ts" />
     <TypeScriptCompile Include="ClientApp\store\PersonStore.ts" />
-    <TypeScriptCompile Include="ClientApp\store\LoginStore.ts" />
   </ItemGroup>
 
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">

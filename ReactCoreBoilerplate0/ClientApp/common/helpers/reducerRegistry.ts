@@ -1,6 +1,7 @@
 import { Reducer } from "redux";
+import {ApplicationState} from "./../../store"
 
-export type Reducers = { [K in keyof GlobalState]: Reducer<GlobalState[K]> };
+export type Reducers = { [K in keyof ApplicationState]: Reducer<ApplicationState[K]> };
 
 export type ChangeListener = (reducers: Partial<Reducers>) => void;
 
@@ -17,9 +18,9 @@ class ReducerRegistry {
         return { ...this._reducers };
     }
 
-    register<T extends keyof GlobalState>(
+    register<T extends keyof ApplicationState>(
         name: T,
-        reducer: Reducer<GlobalState[T]>
+        reducer: Reducer<ApplicationState[T]>
     ) {
         this._reducers = { ...this._reducers, [name]: reducer };
 
@@ -37,10 +38,5 @@ const reducerRegistry = new ReducerRegistry({
 
 export default reducerRegistry;
 
-declare global {
-    interface GlobalState {
-     
-    }
-}
 
 

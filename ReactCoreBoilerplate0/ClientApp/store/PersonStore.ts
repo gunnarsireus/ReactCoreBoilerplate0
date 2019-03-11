@@ -8,7 +8,7 @@ import Result from "@Models/Result";
 
 export module PersonStore {
 
-    export interface IState {
+    export interface IPersonState {
         people: IPersonModel[],
         indicators: {
             operationLoading: boolean;
@@ -134,14 +134,14 @@ export module PersonStore {
         }
     }
 
-    const initialState: IState = {
+    const initialState: IPersonState = {
         people: [],
         indicators: {
             operationLoading: false
         }
     };
 
-    export const reducer: Reducer<IState> = (currentState: IState, incomingAction: Action) => {
+    export const reducer: Reducer<IPersonState> = (currentState: IPersonState, incomingAction: Action) => {
         const action = incomingAction as KnownAction;
 
         var cloneIndicators = () => clone(currentState.indicators);
