@@ -16,7 +16,7 @@ reducerRegistry.register("router", router);
 export interface ApplicationState {
     login: LoginStore.ILoginState;
     person: PersonStore.IPersonState;
-    router
+    router: RouterState
 }
 
 // Whenever an action is dispatched, Redux will update each top-level application state property using
