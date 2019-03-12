@@ -1,4 +1,4 @@
-enum PersonActions {
+export enum PersonActions {
     FailureResponse = "PERSON_FAILURE_RESPONSE",
     SearchRequest = "PERSON_SEARCH_REQUEST",
     SearchResponse = "PERSON_SEARCH_RESPONSE",
@@ -11,3 +11,4 @@ enum PersonActions {
 }
 
 export default PersonActions;
+

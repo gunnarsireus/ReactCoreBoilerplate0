@@ -3,7 +3,6 @@ import * as React from "react";
 import { Helmet } from "react-helmet";
 import { RouteComponentProps, withRouter } from "react-router";
 import { IPersonModel } from "@Models/IPersonModel";
-import { PersonStore } from "@Store/PersonStore";
 import { ApplicationState, reducers } from "../store";
 import { connect } from "react-redux";
 import { PagingBar } from "@Components/shared/PagingBar";
@@ -11,10 +10,40 @@ import PersonEditor from "@Components/person/PersonEditor";
 import Loader from "@Components/shared/Loader";
 import bind from 'bind-decorator';
 import { ModalComponent } from "@Components/shared/ModalComponent";
-import AwesomeDebouncePromise from "awesome-debounce-promise";
-import { getPromiseFromAction } from "@Utils";
 
-type Props = RouteComponentProps<{}> & typeof PersonStore.actionCreators & PersonStore.IPersonState;
+import * as apiClient from "../common/helpers/apiHelpers"
+
+import registerReducer from "../login/reducer";
+import PersonService from "@Services/PersonService";
+
+registerReducer();
+
+import {
+    personAddRequest,
+    personAddResponse,
+    personDeleteRequest,
+    personDeleteResponse,
+    personSearchRequest,
+    personSearchResponse,
+    personUpdateRequest,
+    personUpdateResponse,
+    personFailureResponse
+} from "../person/actionCreators";   
+
+const mapDispatchToProps = {
+    personAddRequest,
+    personAddResponse,
+    personDeleteRequest,
+    personDeleteResponse,
+    personSearchRequest,
+    personSearchResponse,
+    personUpdateRequest,
+    personUpdateResponse,
+    personFailureResponse
+}
+
+
+type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & RouteComponentProps<{}>;
 
 interface IState {
     searchTerm: string;
@@ -48,14 +77,10 @@ class ExamplePage extends React.Component<Props, IState> {
             rowOffset: 0,
             modelForEdit: {}
         };
-
-        this.debouncedSearch = AwesomeDebouncePromise((term: string) => {
-            props.searchRequest(term);
-        }, 500);
     }
 
     componentWillMount() {
-        this.props.searchRequest();
+        this.doSearch("");
     }
 
     componentWillUnmount() {
@@ -69,6 +94,22 @@ class ExamplePage extends React.Component<Props, IState> {
             this.elModalDelete.hide();
         }
     }
+
+    @bind
+    private async doSearch(term?: string) {
+        this.props.personSearchRequest({ term: term })
+        try {
+            const result = await apiClient.getHelper(`/api/Person/Search?term=${term}`);
+            if (!result.hasErrors) {
+                this.props.personSearchResponse(result.value)
+            } else {
+                this.props.personFailureResponse(result.error);
+            }
+        } catch (error) {
+            this.props.personFailureResponse(error);
+        }
+    }
+
 
     @bind
     onChangePage(pageNum: number): void {
@@ -101,13 +142,11 @@ class ExamplePage extends React.Component<Props, IState> {
             // Form is not valid.
             return;
         }
-
-        var result =
-            await getPromiseFromAction(
-                this.props.addRequest(this.personEditorAdd.elForm.getData())
-            );
+        const data = this.personEditorAdd.elForm.getData();
+        var result = await PersonService.add(data);
 
         if (!result.hasErrors) {
+            this.props.personAddRequest(data);
             this.pagingBar.setLastPage();
             this.elModalAdd.hide();
         }
@@ -120,20 +159,17 @@ class ExamplePage extends React.Component<Props, IState> {
             return;
         }
 
-        var data = this.personEditorEdit.elForm.getData();
-
-        var result = await getPromiseFromAction(
-            this.props.updateRequest(data)
-        );
-
+        const data = this.personEditorEdit.elForm.getData() as IPersonModel;
+        var result = await PersonService.update(data);
         if (!result.hasErrors) {
+            this.props.personUpdateRequest(data);
             this.elModalEdit.hide();
         }
     }
 
     @bind
     onClickPersonEditorDelete__saveBtn(e: React.MouseEvent<HTMLButtonElement>): void {
-        this.props.deleteRequest(this.state.modelForEdit.id);
+        this.props.personDeleteRequest({ id: this.state.modelForEdit.id});
         this.elModalDelete.hide();
     }
 
@@ -170,7 +206,7 @@ class ExamplePage extends React.Component<Props, IState> {
                 <title>Example - RCB</title>
             </Helmet>
 
-            <Loader show={this.props.indicators.operationLoading} />
+            <Loader show={this.props.person.indicators.operationLoading} />
 
             <div className="panel panel-default">
                 <div className="panel-body row">
@@ -196,7 +232,7 @@ class ExamplePage extends React.Component<Props, IState> {
                     </tr>
                 </thead>
                 <tbody>
-                    {this.renderRows(this.props.people)}
+                    {this.renderRows(this.props.person.people)}
                 </tbody>
             </table>
 
@@ -245,7 +281,7 @@ class ExamplePage extends React.Component<Props, IState> {
 
             <PagingBar
                 ref={x => this.pagingBar = x}
-                totalResults={this.props.people.length}
+                totalResults={this.props.person.people.length}
                 limitPerPage={this.state.limitPerPage}
                 currentPage={this.state.pageNum}
                 onChangePage={this.onChangePage}
@@ -254,9 +290,6 @@ class ExamplePage extends React.Component<Props, IState> {
     }
 }
 
-var component = connect(
-    (state: ApplicationState) => state.person, // Selects which state properties are merged into the component's props.
-    PersonStore.actionCreators // Selects which action creators are merged into the component's props.
-)(ExamplePage as any);
+const mapStateToProps = ({ person }: ApplicationState) => ({ person});
 
-export default (withRouter(component as any) as any as typeof ExamplePage)
+export default connect(mapStateToProps, mapDispatchToProps)(ExamplePage);

@@ -1,13 +1,7 @@
-﻿import { AppThunkActionAsync } from "./store";
-
-declare var process: any;
+﻿declare var process: any;
 
 export function clone<T>(object: T): T {
     return JSON.parse(JSON.stringify(object));
-}
-
-export function getPromiseFromAction<T, V>(asyncActionCreator: AppThunkActionAsync<T, V>): Promise<V> {
-    return (asyncActionCreator as any) as Promise<V>;
 }
 
 /**

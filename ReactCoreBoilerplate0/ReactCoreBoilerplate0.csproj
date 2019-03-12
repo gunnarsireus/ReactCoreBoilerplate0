@@ -47,7 +47,6 @@
     <None Remove="ClientApp\components\shared\PagingBar.tsx" />
     <None Remove="ClientApp\components\shared\topMenu.tsx" />
     <None Remove="ClientApp\pages\layoutPage.tsx" />
-    <None Remove="ClientApp\store\PersonStore.ts" />
     <None Remove="ClientApp\styles\authorizedLayout.scss" />
     <None Remove="ClientApp\styles\guestLayout.scss" />
     <None Remove="ClientApp\styles\main.scss" />
@@ -79,7 +78,6 @@
     <TypeScriptCompile Include="ClientApp\models\ILoginModel.ts" />
     <TypeScriptCompile Include="ClientApp\models\IServiceUser.ts" />
     <TypeScriptCompile Include="ClientApp\services\AccountService.ts" />
-    <TypeScriptCompile Include="ClientApp\store\PersonStore.ts" />
   </ItemGroup>
 
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">

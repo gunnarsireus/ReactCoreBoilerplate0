@@ -1,7 +1,7 @@
 //import * as  LoginStore from "./login/reducer";
 //import * as PersonStore from "./person/reducer";
 import * as LoginStore from "./login/reducer";
-import { PersonStore } from "@Store/PersonStore";
+import * as PersonStore from "./person/reducer";
 import reducerRegistry, { Reducers } from "./common/helpers/reducerRegistry";
 import {
     RouterState,
@@ -27,13 +27,3 @@ export const reducers = {
     person: PersonStore.reducer,
     router
 };
-
-// This type can be used as a hint on action creators so that its 'dispatch' and 'getState' params are
-// correctly typed to match your store.
-export interface AppThunkAction<TAction> {
-    (dispatch: (action: TAction) => void, getState: () => ApplicationState): void;
-}
-
-export interface AppThunkActionAsync<TAction, TResult> {
-    (dispatch: (action: TAction) => void, getState: () => ApplicationState) : Promise<TResult>
-}

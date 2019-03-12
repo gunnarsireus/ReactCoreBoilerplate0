@@ -59,7 +59,7 @@ class LoginPage extends React.Component<Props, {}> {
 
     render() {
 
-        if (this.props.login.loginSuccess) {
+        if (this.props.login.indicators.loginSuccess) {
             return <Redirect to="/"/>;
         }
 
@@ -69,7 +69,7 @@ class LoginPage extends React.Component<Props, {}> {
                 <title>Login page - RCB</title>
             </Helmet>
             
-            <Loader ref={x => this.elLoader = x} show={this.props.login.operationLoading} />
+            <Loader ref={x => this.elLoader = x} show={this.props.login.indicators.operationLoading} />
 
             <div id="loginContainer">
 
@@ -94,6 +94,6 @@ class LoginPage extends React.Component<Props, {}> {
     }
 }
 
-const mapStateToProps = ({ login, person }: ApplicationState) => ({ login: login.indicators, person: person.people });
+const mapStateToProps = ({ login }: ApplicationState) => ({ login });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);
