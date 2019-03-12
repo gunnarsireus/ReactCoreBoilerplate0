@@ -65,8 +65,6 @@ class ExamplePage extends React.Component<Props, IState> {
     private personEditorAdd: PersonEditor;
     private personEditorEdit: PersonEditor;
 
-    private debouncedSearch: (term: string) => void;
-
     constructor(props: Props) {
         super(props);
 
@@ -80,7 +78,7 @@ class ExamplePage extends React.Component<Props, IState> {
     }
 
     componentWillMount() {
-        this.doSearch("");
+        this.doSearch();
     }
 
     componentWillUnmount() {
@@ -96,8 +94,8 @@ class ExamplePage extends React.Component<Props, IState> {
     }
 
     @bind
-    private async doSearch(term?: string) {
-        this.props.personSearchRequest({ term: term })
+    private async doSearch(term: string = "") {
+        this.props.personSearchRequest({ term: term });
         try {
             const result = await apiClient.getHelper(`/api/Person/Search?term=${term}`);
             if (!result.hasErrors) {
@@ -195,7 +193,7 @@ class ExamplePage extends React.Component<Props, IState> {
     @bind
     onChangeSearchInput(e: React.ChangeEvent<HTMLInputElement>) {
         var val = e.currentTarget.value;
-        this.debouncedSearch(val);
+        this.doSearch(val);
         this.pagingBar.setFirstPage();
     }
 
