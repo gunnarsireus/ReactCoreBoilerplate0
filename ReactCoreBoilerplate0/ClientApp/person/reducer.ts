@@ -13,52 +13,6 @@ export interface IPersonState {
         operationLoading: boolean;
     };
 }
-interface IFailureResponse {
-    type: PersonActions.FailureResponse;
-}
-
-interface IGetAllRequest {
-    type: PersonActions.SearchRequest;
-}
-
-interface IGetAllResponse {
-    type: PersonActions.SearchResponse;
-    payload: IPersonModel[];
-}
-
-interface IAddRequest {
-    type: PersonActions.AddRequest;
-}
-
-interface IAddResponse {
-    type: PersonActions.AddResponse;
-    payload: IPersonModel;
-}
-
-interface IUpdateRequest {
-    type: PersonActions.UpdateRequest;
-}
-
-interface IUpdateResponse {
-    type: PersonActions.UpdateResponse;
-    payload: IPersonModel;
-}
-
-interface IDeleteRequest {
-    type: PersonActions.DeleteRequest;
-}
-
-interface IDeleteResponse {
-    type: PersonActions.DeleteResponse;
-    id: number;
-}
-
-type KnownAction =
-    IFailureResponse |
-    IGetAllRequest | IGetAllResponse |
-    IAddRequest | IAddResponse |
-    IUpdateRequest | IUpdateResponse |
-    IDeleteRequest | IDeleteResponse;
 
 const initialState: IPersonState = {
     people: [],
@@ -71,11 +25,10 @@ export const reducerName = "person";
 
 export function reducer(
     currentState = initialState,
-    incomingAction: ActionUnion<typeof actionCreators>
+    action: ActionUnion<typeof actionCreators>
 ): IPersonState {
-    console.log("reducer, incomingAction: ", incomingAction, ", currentState: ", currentState);
     var cloneIndicators = () => clone(currentState.indicators);
-    var action = incomingAction as KnownAction;
+    console.log("reducer, action: ", action, ", currentState: ", currentState);
     switch (action.type) {
         case PersonActions.FailureResponse:
             var indicators = cloneIndicators();
@@ -98,8 +51,7 @@ export function reducer(
             var indicators = cloneIndicators();
             indicators.operationLoading = false;
             var data = clone(currentState.people);
-            var act = action;
-            var itemToUpdate = data.filter(x => x.id === act.payload.id)[0];
+            var itemToUpdate = data.filter(x => x.id === action.payload.id)[0];
             itemToUpdate.firstName = action.payload.firstName;
             itemToUpdate.lastName = action.payload.lastName;
             return { ...currentState, indicators, people: data };
@@ -120,8 +72,7 @@ export function reducer(
         case PersonActions.DeleteResponse:
             var indicators = cloneIndicators();
             indicators.operationLoading = false;
-            var acti = action;
-            var data = clone(currentState.people).filter(x => x.id !== acti.id);
+            var data = clone(currentState.people).filter(x => x.id !== action.payload.id);
             return { ...currentState, indicators, people: data };
         default:
             // The following line guarantees that every action in the KnownAction union has been covered by a case above

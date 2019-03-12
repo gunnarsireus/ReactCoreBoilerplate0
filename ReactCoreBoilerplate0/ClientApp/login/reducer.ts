@@ -13,32 +13,6 @@ export interface ILoginState {
     };
 }
 
-interface IInit {
-    type: LoginActions.Init;
-}
-
-interface IRequest {
-    type: LoginActions.Request;
-}
-
-interface IResponse {
-    type: LoginActions.Response
-    payload: IServiceUser;
-}
-
-interface ISuccess {
-    type: LoginActions.Success
-    payload: IServiceUser;
-}
-
-interface IFailure {
-    type: LoginActions.Failure
-    payload: IServiceUser;
-}
-
-
-type KnownAction = IInit | IRequest | IResponse | ISuccess | IFailure;
-
 const initialState: ILoginState = {
     indicators: {
         operationLoading: false,
@@ -50,10 +24,9 @@ export const reducerName = "login";
 
 export function reducer(
     currentState = initialState,
-    incomingAction: ActionUnion<typeof actionCreators>
+    action: ActionUnion<typeof actionCreators>
 ): ILoginState {
     var cloneIndicators = () => clone(currentState.indicators);
-    var action = incomingAction as KnownAction;
     switch (action.type) {
         case LoginActions.Init:
             return initialState;
