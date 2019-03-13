@@ -134,14 +134,12 @@ class ExamplePage extends React.Component<Props, IState> {
 
     @bind
     async onClickPersonEditorAdd__saveBtn(e: React.MouseEvent<HTMLButtonElement>) {
-        e.preventDefault();
-
         if (!this.personEditorAdd.elForm.isValid()) {
             // Form is not valid.
             return;
         }
-        const data = this.personEditorAdd.elForm.getData() as IPersonModel;
 
+        const data = this.personEditorAdd.elForm.getData() as IPersonModel;
         var result = await PersonService.add(data);
 
         if (!result.hasErrors) {
@@ -156,10 +154,9 @@ class ExamplePage extends React.Component<Props, IState> {
 
     @bind
     async onClickPersonEditorEdit__saveBtn(e: React.MouseEvent<HTMLButtonElement>) {
-
         if (!this.personEditorEdit.elForm.isValid()) {
             // Form is not valid.
-            return null;
+            return;
         }
 
         const data = this.personEditorEdit.elForm.getData() as IPersonModel;
@@ -167,15 +164,15 @@ class ExamplePage extends React.Component<Props, IState> {
 
         if (!result.hasErrors) {
             this.props.personUpdateResponse(data);
+            this.elModalEdit.hide();
         } else {
             this.props.personFailureResponse({ error: result.errors[0] });
         }
-
-        return result;
     }
 
     @bind
     async onClickPersonEditorDelete__saveBtn(e: React.MouseEvent<HTMLButtonElement>) {
+
         const id = this.state.modelForEdit.id;
         this.props.personDeleteRequest({ id: id });
         var result = await PersonService.delete(id);
