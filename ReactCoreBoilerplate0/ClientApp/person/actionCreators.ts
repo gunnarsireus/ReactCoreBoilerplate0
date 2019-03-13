@@ -1,4 +1,4 @@
-import { CreateAction } from "../common/helpers/createAction";
+import { CreateAction } from "../helpers/createAction";
 import PersonActions from "./actions";
 import { IPersonModel } from "@Models/IPersonModel";
 

@@ -2,7 +2,7 @@
 //import * as PersonStore from "./person/reducer";
 import * as LoginStore from "./login/reducer";
 import * as PersonStore from "./person/reducer";
-import reducerRegistry, { Reducers } from "./common/helpers/reducerRegistry";
+import reducerRegistry from "./helpers/reducerRegistry";
 import {
     RouterState,
     routerReducer as router,

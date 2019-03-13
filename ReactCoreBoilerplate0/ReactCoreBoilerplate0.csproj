@@ -21,17 +21,13 @@
   <ItemGroup>
     <!-- Files not to publish (note that the 'dist' subfolders are re-added below) -->
     <Compile Remove="ClientApp\domain-task\**" />
-    <Compile Remove="ClientApp\helpers\**" />
     <Content Remove="ClientApp\**" />
     <Content Remove="ClientApp\domain-task\**" />
     <EmbeddedResource Remove="ClientApp\domain-task\**" />
-    <EmbeddedResource Remove="ClientApp\helpers\**" />
     <None Remove="ClientApp\domain-task\**" />
-    <None Remove="ClientApp\helpers\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="ClientApp\common\helpers\reducerRegistry.ts" />
     <None Remove="ClientApp\components\shared\AppComponent.tsx" />
     <None Remove="ClientApp\layouts\guestLayout.tsx" />
     <None Remove="ClientApp\models\ILoginModel.ts" />
@@ -53,7 +49,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="ClientApp\common\helpers\reducerRegistry.ts" />
+    <Content Include="ClientApp\helpers\reducerRegistry.ts" />
     <Content Include="ClientApp\components\person\PersonEditor.tsx" />
     <Content Include="ClientApp\pages\LoginPage.tsx" />
     <Content Include="ClientApp\person\components\PersonEditor.tsx" />

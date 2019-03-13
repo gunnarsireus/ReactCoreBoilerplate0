@@ -2,8 +2,8 @@ import { clone } from "@Utils";
 import { IServiceUser } from "@Models/IServiceUser";
 import { Action, Reducer } from "redux";
 import LoginActions from "./actions";
-import reducerRegistry from "../common/helpers/reducerRegistry";
-import { ActionUnion } from "../common/helpers/createAction";
+import reducerRegistry from "../helpers/reducerRegistry";
+import { ActionUnion } from "../helpers/createAction";
 import * as actionCreators from "./actionCreators";
 
 export interface ILoginState {

@@ -2,8 +2,8 @@ import { clone } from "@Utils";
 import { IPersonModel } from "@Models/IPersonModel";
 import { Action, Reducer } from "redux";
 import PersonActions from "./actions";
-import reducerRegistry from "../common/helpers/reducerRegistry";
-import { ActionUnion } from "../common/helpers/createAction";
+import reducerRegistry from "../helpers/reducerRegistry";
+import { ActionUnion } from "../helpers/createAction";
 import * as actionCreators from "./actionCreators";
 
 

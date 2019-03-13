@@ -11,7 +11,7 @@ import Loader from "@Components/shared/Loader";
 import bind from 'bind-decorator';
 import { ModalComponent } from "@Components/shared/ModalComponent";
 
-import * as apiClient from "../common/helpers/apiHelpers"
+import * as apiClient from "../helpers/apiHelpers"
 
 import registerReducer from "../login/reducer";
 import PersonService from "@Services/PersonService";
@@ -96,15 +96,12 @@ class ExamplePage extends React.Component<Props, IState> {
     @bind
     private async doSearch(term: string = "") {
         this.props.personSearchRequest({ term: term });
-        try {
-            const result = await apiClient.getHelper(`/api/Person/Search?term=${term}`);
-            if (!result.hasErrors) {
-                this.props.personSearchResponse(result.value)
-            } else {
-                this.props.personFailureResponse(result.error);
-            }
-        } catch (error) {
-            this.props.personFailureResponse(error);
+
+        const result = await apiClient.getHelper(`/api/Person/Search?term=${term}`);
+        if (!result.hasErrors) {
+            this.props.personSearchResponse(result.value)
+        } else {
+            this.props.personFailureResponse(result.error);
         }
     }
 
@@ -215,10 +212,6 @@ class ExamplePage extends React.Component<Props, IState> {
     render() {
 
         return <div>
-            <Helmet>
-                <title>Example - RCB</title>
-            </Helmet>
-
             <Loader show={this.props.person.indicators.operationLoading} />
 
             <div className="panel panel-default">
