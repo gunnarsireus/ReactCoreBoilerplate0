@@ -51,6 +51,7 @@ interface IState {
     limitPerPage: number;
     rowOffset: number;
     modelForEdit: IPersonModel;
+    modelForDelete: IPersonModel;
 }
 
 
@@ -73,7 +74,8 @@ class ExamplePage extends React.Component<Props, IState> {
             pageNum: 1,
             limitPerPage: 5,
             rowOffset: 0,
-            modelForEdit: {}
+            modelForEdit: {},
+            modelForDelete: {}
         };
     }
 
@@ -124,8 +126,8 @@ class ExamplePage extends React.Component<Props, IState> {
     }
 
     @bind
-    onClickShowDeleteModal(e: React.MouseEvent<HTMLButtonElement>, modelForEdit: IPersonModel) {
-        this.setState({ modelForEdit });
+    onClickShowDeleteModal(e: React.MouseEvent<HTMLButtonElement>, modelForDelete: IPersonModel) {
+        this.setState({ modelForDelete });
         this.elModalDelete.show();
     }
 
@@ -170,7 +172,7 @@ class ExamplePage extends React.Component<Props, IState> {
     @bind
     async onClickPersonEditorDelete__saveBtn(e: React.MouseEvent<HTMLButtonElement>) {
 
-        const id = this.state.modelForEdit.id;
+        const id = this.state.modelForDelete.id;
         this.props.personDeleteRequest({ id: id });
         var result = await PersonService.delete(id);
 
@@ -281,7 +283,7 @@ class ExamplePage extends React.Component<Props, IState> {
                     <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
                     <button type="button" className="btn btn-danger" onClick={this.onClickPersonEditorDelete__saveBtn}>Delete</button>
                 </div>}
-                title={`Delete person: ${this.state.modelForEdit.firstName} ${this.state.modelForEdit.lastName}`}>
+                title={`Delete person: ${this.state.modelForDelete.firstName} ${this.state.modelForDelete.lastName}`}>
                 <p>Do you really want to delete this person?</p>
             </ModalComponent>
 
