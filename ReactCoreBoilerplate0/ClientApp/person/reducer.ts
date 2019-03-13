@@ -28,7 +28,6 @@ export function reducer(
     action: ActionUnion<typeof actionCreators>
 ): IPersonState {
     var cloneIndicators = () => clone(currentState.indicators);
-    console.log("reducer, action: ", action, ", currentState: ", currentState);
     switch (action.type) {
         case PersonActions.FailureResponse:
             var indicators = cloneIndicators();
@@ -41,7 +40,6 @@ export function reducer(
         case PersonActions.SearchResponse:
             var indicators = cloneIndicators();
             indicators.operationLoading = false;
-            console.log("reducer action.payload: ", action.payload)
             return { ...currentState, indicators, people: action.payload };
         case PersonActions.UpdateRequest:
             var indicators = cloneIndicators();
