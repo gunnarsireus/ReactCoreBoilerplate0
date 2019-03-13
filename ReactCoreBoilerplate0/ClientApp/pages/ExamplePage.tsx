@@ -140,34 +140,52 @@ class ExamplePage extends React.Component<Props, IState> {
             // Form is not valid.
             return;
         }
-        const data = this.personEditorAdd.elForm.getData();
+        const data = this.personEditorAdd.elForm.getData() as IPersonModel;
+
         var result = await PersonService.add(data);
 
         if (!result.hasErrors) {
-            this.props.personAddRequest(data);
+            data.id = result.value;
+            this.props.personAddResponse(data);
             this.pagingBar.setLastPage();
             this.elModalAdd.hide();
+        } else {
+            this.props.personFailureResponse({ error: result.errors[0] });
         }
     }
 
     @bind
     async onClickPersonEditorEdit__saveBtn(e: React.MouseEvent<HTMLButtonElement>) {
+
         if (!this.personEditorEdit.elForm.isValid()) {
             // Form is not valid.
-            return;
+            return null;
         }
 
         const data = this.personEditorEdit.elForm.getData() as IPersonModel;
         var result = await PersonService.update(data);
+
         if (!result.hasErrors) {
-            this.props.personUpdateRequest(data);
-            this.elModalEdit.hide();
+            this.props.personUpdateResponse(data);
+        } else {
+            this.props.personFailureResponse({ error: result.errors[0] });
         }
+
+        return result;
     }
 
     @bind
-    onClickPersonEditorDelete__saveBtn(e: React.MouseEvent<HTMLButtonElement>): void {
-        this.props.personDeleteRequest({ id: this.state.modelForEdit.id});
+    async onClickPersonEditorDelete__saveBtn(e: React.MouseEvent<HTMLButtonElement>) {
+        const id = this.state.modelForEdit.id;
+        this.props.personDeleteRequest({ id: id });
+        var result = await PersonService.delete(id);
+
+        if (!result.hasErrors) {
+            this.props.personDeleteResponse({ id: id });
+        } else {
+            this.props.personFailureResponse({ error: result.errors[0] });
+        }
+
         this.elModalDelete.hide();
     }
 
