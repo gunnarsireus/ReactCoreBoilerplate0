@@ -50,7 +50,6 @@
 
   <ItemGroup>
     <Content Include="ClientApp\helpers\reducerRegistry.ts" />
-    <Content Include="ClientApp\components\person\PersonEditor.tsx" />
     <Content Include="ClientApp\pages\LoginPage.tsx" />
     <Content Include="ClientApp\person\components\PersonEditor.tsx" />
     <Content Include="ClientApp\models\IPersonModel.ts" />

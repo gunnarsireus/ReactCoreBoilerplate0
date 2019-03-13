@@ -1,5 +1,3 @@
-//import * as  LoginStore from "./login/reducer";
-//import * as PersonStore from "./person/reducer";
 import * as LoginStore from "./login/reducer";
 import * as PersonStore from "./person/reducer";
 import reducerRegistry from "./helpers/reducerRegistry";

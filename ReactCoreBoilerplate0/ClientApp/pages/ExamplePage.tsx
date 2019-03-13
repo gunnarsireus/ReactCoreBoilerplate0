@@ -1,12 +1,11 @@
 ﻿import "@Styles/main.scss";
 import * as React from "react";
-import { Helmet } from "react-helmet";
 import { RouteComponentProps, withRouter } from "react-router";
 import { IPersonModel } from "@Models/IPersonModel";
-import { ApplicationState, reducers } from "../store";
+import { ApplicationState } from "../store";
 import { connect } from "react-redux";
 import { PagingBar } from "@Components/shared/PagingBar";
-import PersonEditor from "@Components/person/PersonEditor";
+import PersonEditor from "../person/components/PersonEditor";
 import Loader from "@Components/shared/Loader";
 import bind from 'bind-decorator';
 import { ModalComponent } from "@Components/shared/ModalComponent";
