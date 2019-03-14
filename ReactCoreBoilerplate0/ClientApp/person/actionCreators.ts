@@ -34,7 +34,7 @@ export const personAddResponse = (payload:IPersonModel) =>
         type: PersonActions.AddResponse
     });
 
-export const personFailureResponse = (payload: { error: string }) => 
+export const personFailureResponse = (payload: { errors: string[] }) => 
     createAction({
         payload,
         type: PersonActions.FailureResponse

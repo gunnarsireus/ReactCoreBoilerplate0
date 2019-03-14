@@ -9,11 +9,12 @@ import PersonEditor from "../person/components/PersonEditor";
 import Loader from "@Components/shared/Loader";
 import bind from 'bind-decorator';
 import { ModalComponent } from "@Components/shared/ModalComponent";
+import AwesomeDebouncePromise from "awesome-debounce-promise";
 
 import * as apiClient from "../helpers/apiHelpers"
 
 import registerReducer from "../login/reducer";
-import PersonService from "@Services/PersonService";
+
 
 registerReducer();
 
@@ -65,6 +66,8 @@ class ExamplePage extends React.Component<Props, IState> {
     private personEditorAdd: PersonEditor;
     private personEditorEdit: PersonEditor;
 
+    private debouncedSearch: (term: string) => void;
+
     constructor(props: Props) {
         super(props);
 
@@ -76,6 +79,9 @@ class ExamplePage extends React.Component<Props, IState> {
             modelForEdit: {},
             modelForDelete: {}
         };
+        this.debouncedSearch = AwesomeDebouncePromise((term: string) => {
+            this.doSearch(term);
+        }, 500);
     }
 
     componentWillMount() {
@@ -97,12 +103,12 @@ class ExamplePage extends React.Component<Props, IState> {
     @bind
     private async doSearch(term: string = "") {
         this.props.personSearchRequest({ term: term });
-
         const result = await apiClient.getHelper(`/api/Person/Search?term=${term}`);
+
         if (!result.hasErrors) {
             this.props.personSearchResponse(result.value)
         } else {
-            this.props.personFailureResponse(result.error);
+            this.props.personFailureResponse({ errors: result.errors });
         }
     }
 
@@ -138,7 +144,7 @@ class ExamplePage extends React.Component<Props, IState> {
         }
 
         const data = this.personEditorAdd.elForm.getData() as IPersonModel;
-        var result = await PersonService.add(data);
+        var result = await apiClient.postHelper("/api/Person/Add",data);
 
         if (!result.hasErrors) {
             data.id = result.value;
@@ -146,7 +152,7 @@ class ExamplePage extends React.Component<Props, IState> {
             this.pagingBar.setLastPage();
             this.elModalAdd.hide();
         } else {
-            this.props.personFailureResponse({ error: result.errors[0] });
+            this.props.personFailureResponse({ errors: result.errors });
         }
     }
 
@@ -158,13 +164,13 @@ class ExamplePage extends React.Component<Props, IState> {
         }
 
         const data = this.personEditorEdit.elForm.getData() as IPersonModel;
-        var result = await PersonService.update(data);
+        var result = await apiClient.patchHelper(`/api/Person/${data.id}`, data);
 
         if (!result.hasErrors) {
             this.props.personUpdateResponse(data);
             this.elModalEdit.hide();
         } else {
-            this.props.personFailureResponse({ error: result.errors[0] });
+            this.props.personFailureResponse({ errors: result.errors });
         }
     }
 
@@ -173,12 +179,11 @@ class ExamplePage extends React.Component<Props, IState> {
 
         const id = this.state.modelForDelete.id;
         this.props.personDeleteRequest({ id: id });
-        var result = await PersonService.delete(id);
-
+        var result = await apiClient.deleteHelper(`/api/Person/${id}`);
         if (!result.hasErrors) {
             this.props.personDeleteResponse({ id: id });
         } else {
-            this.props.personFailureResponse({ error: result.errors[0] });
+            this.props.personFailureResponse({ errors: result.errors });
         }
 
         this.elModalDelete.hide();
@@ -206,7 +211,7 @@ class ExamplePage extends React.Component<Props, IState> {
     @bind
     onChangeSearchInput(e: React.ChangeEvent<HTMLInputElement>) {
         var val = e.currentTarget.value;
-        this.doSearch(val);
+        this.debouncedSearch(val);
         this.pagingBar.setFirstPage();
     }
 
