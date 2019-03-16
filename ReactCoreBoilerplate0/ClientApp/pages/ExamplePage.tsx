@@ -3,6 +3,7 @@ import * as React from "react";
 import { RouteComponentProps, withRouter } from "react-router";
 import { IPersonModel } from "@Models/IPersonModel";
 import { ApplicationState } from "../store";
+import { Helmet } from "react-helmet";
 import { connect } from "react-redux";
 import { PagingBar } from "@Components/shared/PagingBar";
 import PersonEditor from "../person/components/PersonEditor";
@@ -218,6 +219,9 @@ class ExamplePage extends React.Component<Props, IState> {
     render() {
 
         return <div>
+            <Helmet>
+                <title>Example - RCB</title>
+            </Helmet>
             <Loader show={this.props.person.indicators.operationLoading} />
 
             <div className="panel panel-default">
