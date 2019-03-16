@@ -1,5 +1,7 @@
+using System.IO;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Serilog;
 
 namespace ReactCoreBoilerplate0
