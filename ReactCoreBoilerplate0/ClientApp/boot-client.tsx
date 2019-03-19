@@ -1,6 +1,5 @@
 import "@babel/polyfill";
 import "custom-event-polyfill";
-
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
@@ -11,7 +10,6 @@ import configureStore from './configureStore';
 import { ApplicationState }  from './store';
 import * as RoutesModule from './routes';
 let routes = RoutesModule.routes;
-
 import "@Styles/main.scss";
 import 'react-toastify/dist/ReactToastify.css';
 import Globals from "@Globals";
