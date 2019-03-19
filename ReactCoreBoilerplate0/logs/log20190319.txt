@@ -1,0 +1,227 @@
+2019-03-19 14:35:39.698 +01:00 [INF] User profile is available. Using 'C:\Users\gunna\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-03-19 14:35:45.849 +01:00 [INF] [36m=== Webpack compilation mode: development ===[0m
+2019-03-19 14:35:46.319 +01:00 [INF] [36m=== Webpack compilation mode: development ===[0m
+2019-03-19 14:35:47.015 +01:00 [INF] Starting type checking service...
+2019-03-19 14:35:47.027 +01:00 [INF] Using 1 worker with 2048MB memory limit
+2019-03-19 14:35:47.335 +01:00 [INF] Starting type checking service...
+2019-03-19 14:35:47.347 +01:00 [INF] Using 1 worker with 2048MB memory limit
+2019-03-19 14:35:49.063 +01:00 [INF] Request starting HTTP/1.1 DEBUG http://localhost:64098/  0
+2019-03-19 14:35:49.063 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:64098/  
+2019-03-19 14:35:49.226 +01:00 [INF] Request finished in 307.6076ms 200 
+2019-03-19 14:35:49.308 +01:00 [INF] Executing endpoint 'ReactCoreBoilerplate0.Controllers.MainController.Index (ReactCoreBoilerplate0)'
+2019-03-19 14:35:49.374 +01:00 [INF] Route matched with {action = "Index", controller = "Main"}. Executing action ReactCoreBoilerplate0.Controllers.MainController.Index (ReactCoreBoilerplate0)
+2019-03-19 14:35:49.403 +01:00 [INF] Executing action method ReactCoreBoilerplate0.Controllers.MainController.Index (ReactCoreBoilerplate0) - Validation state: "Valid"
+2019-03-19 14:35:49.431 +01:00 [INF] Executed action method ReactCoreBoilerplate0.Controllers.MainController.Index (ReactCoreBoilerplate0), returned result Microsoft.AspNetCore.Mvc.ViewResult in 8.2157ms.
+2019-03-19 14:35:49.516 +01:00 [INF] Executing ViewResult, running view Index.
+2019-03-19 14:35:53.891 +01:00 [INF] Executed ViewResult - view Index executed in 4332.558ms.
+2019-03-19 14:35:54.003 +01:00 [INF] Executed action ReactCoreBoilerplate0.Controllers.MainController.Index (ReactCoreBoilerplate0) in 4531.7201000000005ms
+2019-03-19 14:35:54.077 +01:00 [INF] Executed endpoint 'ReactCoreBoilerplate0.Controllers.MainController.Index (ReactCoreBoilerplate0)'
+2019-03-19 14:35:54.190 +01:00 [INF] Request finished in 5192.2831ms 200 text/html; charset=utf-8
+2019-03-19 14:35:54.210 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:64098/dist/vendor.js?v=fGnbnoo6GYkHcvnpCD1N5624DE_IZoMs4PAnZgxXRlA  
+2019-03-19 14:35:54.214 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:64098/dist/vendor.css?v=ok1YjWMzS4ntjGr6lTV88q1WNIPQsat3xARp0VtkYTk  
+2019-03-19 14:35:57.246 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:64098/dist/main-client.js?v=1P1NLbKPMxyzEOx6Htft6yY2wMuN4SdoXvMrmbno9ks  
+2019-03-19 14:35:57.352 +01:00 [INF] [34mi[39m [90m´¢ówdm´¢ú[39m: wait until bundle finished: /dist/main-client.js?v=1P1NLbKPMxyzEOx6Htft6yY2wMuN4SdoXvMrmbno9ks
+2019-03-19 14:35:57.563 +01:00 [INF] [34mi[39m [90m´¢ówdm´¢ú[39m: wait until bundle finished: /dist/vendor.js?v=fGnbnoo6GYkHcvnpCD1N5624DE_IZoMs4PAnZgxXRlA
+2019-03-19 14:35:57.572 +01:00 [INF] [34mi[39m [90m´¢ówdm´¢ú[39m: wait until bundle finished: /dist/vendor.css?v=ok1YjWMzS4ntjGr6lTV88q1WNIPQsat3xARp0VtkYTk
+2019-03-19 14:35:59.633 +01:00 [INF] Node will restart because file changed: C:\Users\gunna\Documents\GitHub\ReactCoreBoilerplate0\ReactCoreBoilerplate0\ClientApp\dist\main-server.js
+2019-03-19 14:36:00.210 +01:00 [INF] Type checking in progress...
+2019-03-19 14:36:02.076 +01:00 [INF] Type checking in progress...
+2019-03-19 14:36:02.153 +01:00 [INF] webpack built 1ed7822834cc06c67f57 in 15420ms
+2019-03-19 14:36:02.160 +01:00 [INF] [34mi[39m [90m´¢ówdm´¢ú[39m: Failed to compile.
+2019-03-19 14:36:02.172 +01:00 [ERR] [31m├ù[39m [90m´¢ówdm´¢ú[39m: Hash: 1ed7822834cc06c67f57
+Version: webpack 4.29.6
+Time: 15420ms
+Built at: 2019-03-19 14:36:02
+             Asset      Size       Chunks                    Chunk Names
+    main-client.js  3.57 MiB  main-client  [emitted]  [big]  main-client
+main-client.js.map  29.9 KiB  main-client  [emitted]         main-client
+Entrypoint main-client [big] = main-client.js main-client.js.map
+
+ERROR in ./ClientApp/helpers/apiHelpers.ts
+Module not found: Error: Can't resolve 'query-string' in 'C:\Users\gunna\Documents\GitHub\ReactCoreBoilerplate0\ReactCoreBoilerplate0\ClientApp\helpers'
+ @ ./ClientApp/helpers/apiHelpers.ts 1:1693-1734 1:1908-1929
+ @ ./ClientApp/pages/ExamplePage.tsx
+ @ ./ClientApp/routes.tsx
+ @ ./ClientApp/boot-client.tsx
+ @ multi event-source-polyfill webpack-hot-middleware/client?path=__webpack_hmr&dynamicPublicPath=true ./ClientApp/boot-client.tsx
+2019-03-19 14:36:03.239 +01:00 [INF] Request finished in 5969.1357ms 200 application/javascript; charset=UTF-8
+2019-03-19 14:36:03.333 +01:00 [INF] Sending file. Request path: '/dist/vendor.css'. Physical path: 'C:\Users\gunna\Documents\GitHub\ReactCoreBoilerplate0\ReactCoreBoilerplate0\wwwroot\dist\vendor.css'
+2019-03-19 14:36:03.417 +01:00 [INF] Request finished in 9134.0716ms 200 text/css
+2019-03-19 14:36:04.617 +01:00 [INF] Sending file. Request path: '/dist/vendor.js'. Physical path: 'C:\Users\gunna\Documents\GitHub\ReactCoreBoilerplate0\ReactCoreBoilerplate0\wwwroot\dist\vendor.js'
+2019-03-19 14:36:04.650 +01:00 [INF] Request finished in 10418.1697ms 200 application/javascript
+2019-03-19 14:36:06.618 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:64098/dist/__webpack_hmr  
+2019-03-19 14:36:06.970 +01:00 [ERR] ERROR in C:/Users/gunna/Documents/GitHub/ReactCoreBoilerplate0/ReactCoreBoilerplate0/ClientApp/helpers/apiHelpers.ts(1,30):
+2019-03-19 14:36:06.980 +01:00 [INF] Version: typescript 3.3.3333
+2019-03-19 14:36:06.985 +01:00 [ERR] 
+TS2307: Cannot find module 'query-string'.
+2019-03-19 14:36:06.994 +01:00 [INF] Time: 20281ms
+2019-03-19 14:36:07.155 +01:00 [ERR] ERROR in C:/Users/gunna/Documents/GitHub/ReactCoreBoilerplate0/ReactCoreBoilerplate0/ClientApp/helpers/apiHelpers.ts(1,30):
+2019-03-19 14:36:07.162 +01:00 [INF] Version: typescript 3.3.3333
+2019-03-19 14:36:07.164 +01:00 [ERR] 
+TS2307: Cannot find module 'query-string'.
+2019-03-19 14:36:07.168 +01:00 [INF] Time: 20031ms
+2019-03-19 14:37:07.972 +01:00 [INF] User profile is available. Using 'C:\Users\gunna\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-03-19 14:37:14.140 +01:00 [INF] [36m=== Webpack compilation mode: development ===[0m
+2019-03-19 14:37:14.831 +01:00 [INF] [36m=== Webpack compilation mode: development ===[0m
+2019-03-19 14:37:15.531 +01:00 [INF] Starting type checking service...
+2019-03-19 14:37:15.539 +01:00 [INF] Using 1 worker with 2048MB memory limit
+2019-03-19 14:37:15.959 +01:00 [INF] Starting type checking service...
+2019-03-19 14:37:15.979 +01:00 [INF] Using 1 worker with 2048MB memory limit
+2019-03-19 14:37:17.078 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:64098/  
+2019-03-19 14:37:17.078 +01:00 [INF] Request starting HTTP/1.1 DEBUG http://localhost:64098/  0
+2019-03-19 14:37:17.127 +01:00 [INF] Request finished in 68.4575ms 200 
+2019-03-19 14:37:17.250 +01:00 [INF] Executing endpoint 'ReactCoreBoilerplate0.Controllers.MainController.Index (ReactCoreBoilerplate0)'
+2019-03-19 14:37:17.302 +01:00 [INF] Route matched with {action = "Index", controller = "Main"}. Executing action ReactCoreBoilerplate0.Controllers.MainController.Index (ReactCoreBoilerplate0)
+2019-03-19 14:37:17.333 +01:00 [INF] Executing action method ReactCoreBoilerplate0.Controllers.MainController.Index (ReactCoreBoilerplate0) - Validation state: "Valid"
+2019-03-19 14:37:17.360 +01:00 [INF] Executed action method ReactCoreBoilerplate0.Controllers.MainController.Index (ReactCoreBoilerplate0), returned result Microsoft.AspNetCore.Mvc.ViewResult in 4.5747ms.
+2019-03-19 14:37:17.444 +01:00 [INF] Executing ViewResult, running view Index.
+2019-03-19 14:37:21.961 +01:00 [INF] Executed action ReactCoreBoilerplate0.Controllers.MainController.Index (ReactCoreBoilerplate0) in 4645.733ms
+2019-03-19 14:37:22.195 +01:00 [INF] Executed endpoint 'ReactCoreBoilerplate0.Controllers.MainController.Index (ReactCoreBoilerplate0)'
+2019-03-19 14:37:23.576 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.NodeServices.HostingModels.NodeInvocationException: Prerendering failed because of error: Error: Cannot find module 'query-string'
+    at webpackMissingModule (webpack-internal:///./ClientApp/helpers/apiHelpers.ts:6:45)
+    at eval (webpack-internal:///./ClientApp/helpers/apiHelpers.ts:6:132)
+    at Object../ClientApp/helpers/apiHelpers.ts (C:\Users\gunna\Documents\GitHub\ReactCoreBoilerplate0\ReactCoreBoilerplate0\ClientApp\dist\main-server.js:254:1)
+    at __webpack_require__ (C:\Users\gunna\Documents\GitHub\ReactCoreBoilerplate0\ReactCoreBoilerplate0\ClientApp\dist\main-server.js:20:30)
+    at eval (webpack-internal:///./ClientApp/pages/ExamplePage.tsx:17:78)
+    at Object../ClientApp/pages/ExamplePage.tsx (C:\Users\gunna\Documents\GitHub\ReactCoreBoilerplate0\ReactCoreBoilerplate0\ClientApp\dist\main-server.js:370:1)
+    at __webpack_require__ (C:\Users\gunna\Documents\GitHub\ReactCoreBoilerplate0\ReactCoreBoilerplate0\ClientApp\dist\main-server.js:20:30)
+    at eval (webpack-internal:///./ClientApp/routes.tsx:11:76)
+    at Object../ClientApp/routes.tsx (C:\Users\gunna\Documents\GitHub\ReactCoreBoilerplate0\ReactCoreBoilerplate0\ClientApp\dist\main-server.js:461:1)
+    at __webpack_require__ (C:\Users\gunna\Documents\GitHub\ReactCoreBoilerplate0\ReactCoreBoilerplate0\ClientApp\dist\main-server.js:20:30)
+Current directory is: C:\Users\gunna\Documents\GitHub\ReactCoreBoilerplate0\ReactCoreBoilerplate0
+
+   at Microsoft.AspNetCore.NodeServices.HostingModels.HttpNodeInstance.InvokeExportAsync[T](NodeInvocationInfo invocationInfo, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.NodeServices.HostingModels.OutOfProcessNodeInstance.InvokeExportAsync[T](CancellationToken cancellationToken, String moduleName, String exportNameOrNull, Object[] args)
+   at Microsoft.AspNetCore.NodeServices.NodeServicesImpl.InvokeExportWithPossibleRetryAsync[T](String moduleName, String exportedFunctionName, Object[] args, Boolean allowRetry, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.NodeServices.NodeServicesImpl.InvokeExportWithPossibleRetryAsync[T](String moduleName, String exportedFunctionName, Object[] args, Boolean allowRetry, CancellationToken cancellationToken)
+   at AspNetCore.Views_Main_Index.ExecuteAsync() in C:\Users\gunna\Documents\GitHub\ReactCoreBoilerplate0\ReactCoreBoilerplate0\Views\Main\Index.cshtml:line 7
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultAsync(IActionResult result)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResultFilterAsync[TFilter,TFilterAsync]()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResultExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultFilters()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.SpaServices.Webpack.ConditionalProxyMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.SpaServices.Webpack.ConditionalProxyMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-03-19 14:37:23.707 +01:00 [INF] Request finished in 6635.5592ms 500 text/html; charset=utf-8
+2019-03-19 14:37:27.484 +01:00 [INF] Node will restart because file changed: C:\Users\gunna\Documents\GitHub\ReactCoreBoilerplate0\ReactCoreBoilerplate0\ClientApp\dist\main-server.js
+2019-03-19 14:37:27.982 +01:00 [INF] Type checking in progress...
+2019-03-19 14:37:29.110 +01:00 [INF] Type checking in progress...
+2019-03-19 14:37:29.143 +01:00 [INF] webpack built 7625b665383b3ebaa9c6 in 13848ms
+2019-03-19 14:37:29.170 +01:00 [INF] [34mi[39m [90m´¢ówdm´¢ú[39m: Hash: 7625b665383b3ebaa9c6
+Version: webpack 4.29.6
+Time: 13848ms
+Built at: 2019-03-19 14:37:29
+             Asset      Size       Chunks                    Chunk Names
+    main-client.js   3.6 MiB  main-client  [emitted]  [big]  main-client
+main-client.js.map  29.9 KiB  main-client  [emitted]         main-client
+Entrypoint main-client [big] = main-client.js main-client.js.map
+2019-03-19 14:37:29.183 +01:00 [INF] [34mi[39m [90m´¢ówdm´¢ú[39m: Compiled successfully.
+2019-03-19 14:37:32.473 +01:00 [INF] No type errors found
+2019-03-19 14:37:32.477 +01:00 [INF] Version: typescript 3.3.3333
+2019-03-19 14:37:32.482 +01:00 [INF] Time: 17204ms
+2019-03-19 14:37:32.683 +01:00 [INF] No type errors found
+2019-03-19 14:37:32.688 +01:00 [INF] Version: typescript 3.3.3333
+2019-03-19 14:37:32.691 +01:00 [INF] Time: 17041ms
+2019-03-19 14:38:28.833 +01:00 [INF] User profile is available. Using 'C:\Users\gunna\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-03-19 14:38:34.316 +01:00 [INF] [36m=== Webpack compilation mode: development ===[0m
+2019-03-19 14:38:34.997 +01:00 [INF] [36m=== Webpack compilation mode: development ===[0m
+2019-03-19 14:38:35.711 +01:00 [INF] Starting type checking service...
+2019-03-19 14:38:35.715 +01:00 [INF] Using 1 worker with 2048MB memory limit
+2019-03-19 14:38:36.067 +01:00 [INF] Starting type checking service...
+2019-03-19 14:38:36.072 +01:00 [INF] Using 1 worker with 2048MB memory limit
+2019-03-19 14:38:37.029 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:64098/  
+2019-03-19 14:38:37.029 +01:00 [INF] Request starting HTTP/1.1 DEBUG http://localhost:64098/  0
+2019-03-19 14:38:37.098 +01:00 [INF] Request finished in 87.5121ms 200 
+2019-03-19 14:38:37.246 +01:00 [INF] Executing endpoint 'ReactCoreBoilerplate0.Controllers.MainController.Index (ReactCoreBoilerplate0)'
+2019-03-19 14:38:37.292 +01:00 [INF] Route matched with {action = "Index", controller = "Main"}. Executing action ReactCoreBoilerplate0.Controllers.MainController.Index (ReactCoreBoilerplate0)
+2019-03-19 14:38:37.329 +01:00 [INF] Executing action method ReactCoreBoilerplate0.Controllers.MainController.Index (ReactCoreBoilerplate0) - Validation state: "Valid"
+2019-03-19 14:38:37.356 +01:00 [INF] Executed action method ReactCoreBoilerplate0.Controllers.MainController.Index (ReactCoreBoilerplate0), returned result Microsoft.AspNetCore.Mvc.ViewResult in 4.6852ms.
+2019-03-19 14:38:37.430 +01:00 [INF] Executing ViewResult, running view Index.
+2019-03-19 14:38:41.081 +01:00 [INF] Executed ViewResult - view Index executed in 3694.7696ms.
+2019-03-19 14:38:41.120 +01:00 [INF] Executed action ReactCoreBoilerplate0.Controllers.MainController.Index (ReactCoreBoilerplate0) in 3803.9614ms
+2019-03-19 14:38:41.150 +01:00 [INF] Executed endpoint 'ReactCoreBoilerplate0.Controllers.MainController.Index (ReactCoreBoilerplate0)'
+2019-03-19 14:38:41.175 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:64098/dist/vendor.js?v=fGnbnoo6GYkHcvnpCD1N5624DE_IZoMs4PAnZgxXRlA  
+2019-03-19 14:38:41.181 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:64098/dist/main-client.js?v=zlfShXBhguli4y2yDKLqZ30oXG-fNne5MIKAC_XCJrE  
+2019-03-19 14:38:41.186 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:64098/dist/vendor.css?v=ok1YjWMzS4ntjGr6lTV88q1WNIPQsat3xARp0VtkYTk  
+2019-03-19 14:38:41.324 +01:00 [INF] Request finished in 4248.4216ms 200 text/html; charset=utf-8
+2019-03-19 14:38:42.132 +01:00 [INF] [34mi[39m [90m´¢ówdm´¢ú[39m: wait until bundle finished: /dist/vendor.css?v=ok1YjWMzS4ntjGr6lTV88q1WNIPQsat3xARp0VtkYTk
+2019-03-19 14:38:42.138 +01:00 [INF] [34mi[39m [90m´¢ówdm´¢ú[39m: wait until bundle finished: /dist/vendor.js?v=fGnbnoo6GYkHcvnpCD1N5624DE_IZoMs4PAnZgxXRlA
+2019-03-19 14:38:42.146 +01:00 [INF] [34mi[39m [90m´¢ówdm´¢ú[39m: wait until bundle finished: /dist/main-client.js?v=zlfShXBhguli4y2yDKLqZ30oXG-fNne5MIKAC_XCJrE
+2019-03-19 14:38:47.176 +01:00 [INF] Node will restart because file changed: C:\Users\gunna\Documents\GitHub\ReactCoreBoilerplate0\ReactCoreBoilerplate0\ClientApp\dist\main-server.js
+2019-03-19 14:38:47.181 +01:00 [INF] Type checking in progress...
+2019-03-19 14:38:49.111 +01:00 [INF] Type checking in progress...
+2019-03-19 14:38:49.171 +01:00 [INF] webpack built 7625b665383b3ebaa9c6 in 13670ms
+2019-03-19 14:38:49.214 +01:00 [INF] [34mi[39m [90m´¢ówdm´¢ú[39m: Hash: 7625b665383b3ebaa9c6
+Version: webpack 4.29.6
+Time: 13670ms
+Built at: 2019-03-19 14:38:49
+             Asset      Size       Chunks                    Chunk Names
+    main-client.js   3.6 MiB  main-client  [emitted]  [big]  main-client
+main-client.js.map  29.9 KiB  main-client  [emitted]         main-client
+Entrypoint main-client [big] = main-client.js main-client.js.map
+2019-03-19 14:38:49.227 +01:00 [INF] [34mi[39m [90m´¢ówdm´¢ú[39m: Compiled successfully.
+2019-03-19 14:38:49.483 +01:00 [INF] Sending file. Request path: '/dist/vendor.css'. Physical path: 'C:\Users\gunna\Documents\GitHub\ReactCoreBoilerplate0\ReactCoreBoilerplate0\wwwroot\dist\vendor.css'
+2019-03-19 14:38:49.515 +01:00 [INF] Request finished in 8323.3257ms 200 text/css
+2019-03-19 14:38:49.884 +01:00 [INF] Request finished in 8694.4587ms 200 application/javascript; charset=UTF-8
+2019-03-19 14:38:50.256 +01:00 [INF] Sending file. Request path: '/dist/vendor.js'. Physical path: 'C:\Users\gunna\Documents\GitHub\ReactCoreBoilerplate0\ReactCoreBoilerplate0\wwwroot\dist\vendor.js'
+2019-03-19 14:38:50.268 +01:00 [INF] Request finished in 9101.3896ms 200 application/javascript
+2019-03-19 14:38:52.432 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:64098/dist/__webpack_hmr  
+2019-03-19 14:38:52.982 +01:00 [INF] No type errors found
+2019-03-19 14:38:52.988 +01:00 [INF] Version: typescript 3.3.3333
+2019-03-19 14:38:52.994 +01:00 [INF] Time: 17531ms
+2019-03-19 14:38:53.677 +01:00 [INF] No type errors found
+2019-03-19 14:38:53.682 +01:00 [INF] Version: typescript 3.3.3333
+2019-03-19 14:38:53.687 +01:00 [INF] Time: 17857ms
+2019-03-19 14:38:57.197 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:64098/api/Account/Login application/json;charset=UTF-8 28
+2019-03-19 14:38:57.210 +01:00 [INF] Executing endpoint 'ReactCoreBoilerplate0.Controllers.AccountController.Login (ReactCoreBoilerplate0)'
+2019-03-19 14:38:57.237 +01:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing action ReactCoreBoilerplate0.Controllers.AccountController.Login (ReactCoreBoilerplate0)
+2019-03-19 14:38:57.303 +01:00 [INF] Executing action method ReactCoreBoilerplate0.Controllers.AccountController.Login (ReactCoreBoilerplate0) with arguments (["ReactCoreBoilerplate0.Models.LoginModel"]) - Validation state: "Valid"
+2019-03-19 14:38:57.313 +01:00 [INF] Executed action method ReactCoreBoilerplate0.Controllers.AccountController.Login (ReactCoreBoilerplate0), returned result Microsoft.AspNetCore.Mvc.JsonResult in 4.2569ms.
+2019-03-19 14:38:57.320 +01:00 [INF] Executing JsonResult, writing value of type 'ReactCoreBoilerplate0.Infrastructure.Result`1[[ReactCoreBoilerplate0.Models.ServiceUser, ReactCoreBoilerplate0, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-03-19 14:38:57.329 +01:00 [INF] Executed action ReactCoreBoilerplate0.Controllers.AccountController.Login (ReactCoreBoilerplate0) in 88.181ms
+2019-03-19 14:38:57.333 +01:00 [INF] Executed endpoint 'ReactCoreBoilerplate0.Controllers.AccountController.Login (ReactCoreBoilerplate0)'
+2019-03-19 14:38:57.337 +01:00 [INF] Request finished in 140.1745ms 200 application/json; charset=utf-8
+2019-03-19 14:38:58.725 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:64098/api/Person/Search?term= application/json 
+2019-03-19 14:38:58.734 +01:00 [INF] Executing endpoint 'ReactCoreBoilerplate0.Controllers.PersonController.Search (ReactCoreBoilerplate0)'
+2019-03-19 14:38:58.741 +01:00 [INF] Route matched with {action = "Search", controller = "Person"}. Executing action ReactCoreBoilerplate0.Controllers.PersonController.Search (ReactCoreBoilerplate0)
+2019-03-19 14:38:58.752 +01:00 [INF] Executing action method ReactCoreBoilerplate0.Controllers.PersonController.Search (ReactCoreBoilerplate0) with arguments ([""]) - Validation state: "Valid"
+2019-03-19 14:38:58.758 +01:00 [INF] Executed action method ReactCoreBoilerplate0.Controllers.PersonController.Search (ReactCoreBoilerplate0), returned result Microsoft.AspNetCore.Mvc.JsonResult in 1.5733000000000001ms.
+2019-03-19 14:38:58.762 +01:00 [INF] Executing JsonResult, writing value of type 'ReactCoreBoilerplate0.Infrastructure.Result`1[[System.Collections.Generic.List`1[[ReactCoreBoilerplate0.Models.PersonModel, ReactCoreBoilerplate0, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2019-03-19 14:38:58.771 +01:00 [INF] Executed action ReactCoreBoilerplate0.Controllers.PersonController.Search (ReactCoreBoilerplate0) in 25.4173ms
+2019-03-19 14:38:58.775 +01:00 [INF] Executed endpoint 'ReactCoreBoilerplate0.Controllers.PersonController.Search (ReactCoreBoilerplate0)'
+2019-03-19 14:38:58.780 +01:00 [INF] Request finished in 55.0397ms 200 application/json; charset=utf-8
+2019-03-19 14:39:02.892 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:64098/api/Person/Add application/json 41
+2019-03-19 14:39:02.897 +01:00 [INF] Executing endpoint 'ReactCoreBoilerplate0.Controllers.PersonController.Add (ReactCoreBoilerplate0)'
+2019-03-19 14:39:02.903 +01:00 [INF] Route matched with {action = "Add", controller = "Person"}. Executing action ReactCoreBoilerplate0.Controllers.PersonController.Add (ReactCoreBoilerplate0)
+2019-03-19 14:39:02.911 +01:00 [INF] Executing action method ReactCoreBoilerplate0.Controllers.PersonController.Add (ReactCoreBoilerplate0) with arguments (["ReactCoreBoilerplate0.Models.PersonModel"]) - Validation state: "Valid"
+2019-03-19 14:39:02.917 +01:00 [INF] Executed action method ReactCoreBoilerplate0.Controllers.PersonController.Add (ReactCoreBoilerplate0), returned result Microsoft.AspNetCore.Mvc.JsonResult in 2.4069000000000003ms.
+2019-03-19 14:39:02.921 +01:00 [INF] Executing JsonResult, writing value of type 'ReactCoreBoilerplate0.Infrastructure.Result`1[[System.Int32, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2019-03-19 14:39:02.927 +01:00 [INF] Executed action ReactCoreBoilerplate0.Controllers.PersonController.Add (ReactCoreBoilerplate0) in 19.5868ms
+2019-03-19 14:39:02.931 +01:00 [INF] Executed endpoint 'ReactCoreBoilerplate0.Controllers.PersonController.Add (ReactCoreBoilerplate0)'
+2019-03-19 14:39:02.936 +01:00 [INF] Request finished in 43.2533ms 200 application/json; charset=utf-8
+2019-03-19 14:39:05.227 +01:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:64098/api/Person/7 application/json 
+2019-03-19 14:39:05.231 +01:00 [INF] Executing endpoint 'ReactCoreBoilerplate0.Controllers.PersonController.Delete (ReactCoreBoilerplate0)'
+2019-03-19 14:39:05.239 +01:00 [INF] Route matched with {action = "Delete", controller = "Person"}. Executing action ReactCoreBoilerplate0.Controllers.PersonController.Delete (ReactCoreBoilerplate0)
+2019-03-19 14:39:05.246 +01:00 [INF] Executing action method ReactCoreBoilerplate0.Controllers.PersonController.Delete (ReactCoreBoilerplate0) with arguments (["7"]) - Validation state: "Valid"
+2019-03-19 14:39:05.257 +01:00 [INF] Executed action method ReactCoreBoilerplate0.Controllers.PersonController.Delete (ReactCoreBoilerplate0), returned result Microsoft.AspNetCore.Mvc.JsonResult in 2.0632ms.
+2019-03-19 14:39:05.261 +01:00 [INF] Executing JsonResult, writing value of type 'ReactCoreBoilerplate0.Infrastructure.Result'.
+2019-03-19 14:39:05.267 +01:00 [INF] Executed action ReactCoreBoilerplate0.Controllers.PersonController.Delete (ReactCoreBoilerplate0) in 23.439ms
+2019-03-19 14:39:05.271 +01:00 [INF] Executed endpoint 'ReactCoreBoilerplate0.Controllers.PersonController.Delete (ReactCoreBoilerplate0)'
+2019-03-19 14:39:05.275 +01:00 [INF] Request finished in 48.235ms 200 application/json; charset=utf-8
