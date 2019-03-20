@@ -52,6 +52,7 @@ class TopMenu extends React.Component<{}, { logoutAction: boolean }> {
                         <li><NavLink exact to={'/'} activeClassName="active">Home</NavLink></li>
                         <li><NavLink exact to={'/example'} activeClassName="active">Example</NavLink></li>
                         <li><NavLink exact to={'/counter'} activeClassName="active">Counter</NavLink></li>
+                        <li><NavLink exact to={'/weatherforecasts'} activeClassName="active">Weather</NavLink></li>
                         <li className="dropdown">
                             <a href="#" ref={x => this.elDropdown = x} className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                 {Globals.serviceUser.login}&nbsp;
