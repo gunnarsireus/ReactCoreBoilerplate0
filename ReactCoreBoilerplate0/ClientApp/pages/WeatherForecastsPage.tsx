@@ -9,7 +9,6 @@ import Loader from "@Components/shared/Loader";
 import bind from 'bind-decorator';
 import { ModalComponent } from "@Components/shared/ModalComponent";
 import AwesomeDebouncePromise from "awesome-debounce-promise";
-import { exportStore } from "../boot-client";
 import * as apiClient from "../helpers/apiHelpers"
 
 import registerReducer from "../login/reducer";
@@ -18,12 +17,14 @@ registerReducer();
 
 import {
     weatherForecastsReceive,
-    weatherForecastsRequest
+    weatherForecastsRequest,
+    weatherForecastsFailure
 } from "../weatherforecasts/actionCreators";  
 
 const mapDispatchToProps = {
     weatherForecastsReceive,
-    weatherForecastsRequest
+    weatherForecastsRequest,
+    weatherForecastsFailure
 }
 
 type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps & RouteComponentProps<{}>;
@@ -41,6 +42,17 @@ class WetaherForecastsPage extends React.Component<Props, {}> {
         this.props.weatherForecastsRequest({ startDateIndex: startDateIndex });
     }
 
+    @bind
+    async getForecasts(startDateIndex: number) {
+        this.props.weatherForecastsRequest({ startDateIndex: startDateIndex });
+        const result = await apiClient.getHelper(`/api/fetchdata / ${startDateIndex}`);
+
+        if (!result.hasErrors) {
+            this.props.weatherForecastsReceive(result.value)
+        } else {
+            this.props.weatherForecastsFailure({ errors: result.errors });
+        }
+    }
     public render() {
         return <div>
             <h1>Weather forecast</h1>
@@ -78,8 +90,8 @@ class WetaherForecastsPage extends React.Component<Props, {}> {
         let nextStartDateIndex = (this.props.weatherforecasts.startDateIndex || 0) + 5;
 
         return <p className='clearfix text-center'>
-            <Link className='btn btn-default pull-left' to={ `/fetchdata/${ prevStartDateIndex }` }>Previous</Link>
-            <Link className='btn btn-default pull-right' to={ `/fetchdata/${ nextStartDateIndex }` }>Next</Link>
+            <button type="button" className="btn btn-default" onClick={()=> this.getForecasts(prevStartDateIndex)}>Previous</button>
+            <button type="button" className="btn btn-primary" onClick={()=> this.getForecasts(nextStartDateIndex)}>Next</button>
             {this.props.weatherforecasts.isLoading ? <span>Loading...</span> : [] }
         </p>;
     }

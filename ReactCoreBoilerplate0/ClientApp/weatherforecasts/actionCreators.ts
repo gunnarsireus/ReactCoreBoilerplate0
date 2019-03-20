@@ -20,3 +20,9 @@ export const weatherForecastsReceive = (
         type: WeatherForecastActions.ReceiveWeatherForecasts
     });
 
+export const weatherForecastsFailure = (payload: { errors: string[] }) =>
+    createAction({
+        payload,
+        type: WeatherForecastActions.weatherForecastsFailure
+    });
+

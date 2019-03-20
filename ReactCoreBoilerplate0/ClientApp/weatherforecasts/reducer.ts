@@ -42,7 +42,12 @@ export function reducer(
                     isLoading: false
                 };
             //}
-            break;
+        case WeatherForecastActions.weatherForecastsFailure:
+            return {
+                //startDateIndex: action.payload.startDateIndex,
+                forecasts: currentState.forecasts,
+                isLoading: true
+            };
         default:
             // The following line guarantees that every action in the KnownAction union has been covered by a case above
             const exhaustiveCheck: never = action;
