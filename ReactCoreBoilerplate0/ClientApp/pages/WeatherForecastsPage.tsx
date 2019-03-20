@@ -92,8 +92,8 @@ class WetaherForecastsPage extends React.Component<Props, {}> {
         let nextStartDateIndex = (this.props.weatherforecast.startDateIndex || 0) + 5;
 
         return <p className='clearfix text-center'>
-            <button type="button" className="btn btn-default" onClick={()=> this.getForecasts(prevStartDateIndex)}>Previous</button>
-            <button type="button" className="btn btn-primary" onClick={()=> this.getForecasts(nextStartDateIndex)}>Next</button>
+            <button type="button" className="btn btn-default pull-left" onClick={()=> this.getForecasts(prevStartDateIndex)}>Previous</button>
+            <button type="button" className="btn btn-default pull-right" onClick={()=> this.getForecasts(nextStartDateIndex)}>Next</button>
             {this.props.weatherforecast.isLoading ? <span>Loading...</span> : [] }
         </p>;
     }
