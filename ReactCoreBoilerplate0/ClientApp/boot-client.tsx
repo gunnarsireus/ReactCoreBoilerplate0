@@ -45,13 +45,6 @@ const history = createBrowserHistory({ basename: baseUrl });
 const initialState = (window as any).initialReduxState as ApplicationState;
 const store = configureStore(history, initialState);
 
-export const exportStore = () => {
-    if (!isNode()) {
-        return store;
-    }
-    return null;
-}
-
 function renderApp() {
     store.subscribe(() => {
         console.log('state: ', store.getState());

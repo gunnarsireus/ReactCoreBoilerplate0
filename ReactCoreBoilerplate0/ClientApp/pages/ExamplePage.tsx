@@ -11,10 +11,9 @@ import Loader from "@Components/shared/Loader";
 import bind from 'bind-decorator';
 import { ModalComponent } from "@Components/shared/ModalComponent";
 import AwesomeDebouncePromise from "awesome-debounce-promise";
-import { exportStore } from "../boot-client";
-import * as apiClient from "../helpers/apiHelpers"
+import * as apiClient from "../helpers/apiHelpers";
 
-import registerReducer from "../login/reducer";
+import registerReducer from "../person/reducer";
 
 
 registerReducer();
@@ -217,7 +216,6 @@ class ExamplePage extends React.Component<Props, IState> {
     }
 
     render() {
-        console.log("getState(): ", exportStore().getState())
         return <div>
             <Helmet>
                 <title>Example - RCB</title>

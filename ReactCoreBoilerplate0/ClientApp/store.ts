@@ -1,5 +1,6 @@
 import * as LoginStore from "./login/reducer";
 import * as PersonStore from "./person/reducer";
+import * as CounterStore from "./counter/reducer";
 import reducerRegistry from "./helpers/reducerRegistry";
 import {
     RouterState,
@@ -14,6 +15,7 @@ reducerRegistry.register("router", router);
 export interface ApplicationState {
     login: LoginStore.ILoginState;
     person: PersonStore.IPersonState;
+    counter: CounterStore.ICounterState;
     router: RouterState
 }
 
@@ -23,5 +25,6 @@ export interface ApplicationState {
 export const reducers = {
     login: LoginStore.reducer,
     person: PersonStore.reducer,
+    counter: CounterStore.reducer,
     router
 };
