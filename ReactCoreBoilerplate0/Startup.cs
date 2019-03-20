@@ -42,6 +42,7 @@ namespace ReactCoreBoilerplate0
             // Add your own services here.
             services.AddScoped<AccountService>();
             services.AddScoped<PersonService>();
+            services.AddScoped<WeatherService>();
 
             return services.BuildServiceProvider();
         }

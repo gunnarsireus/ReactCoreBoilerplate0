@@ -18,7 +18,7 @@ const initialState: IWeatherForecastsState =  {
     forecasts: []
 }
 
-export const reducerName = "weatherforecasts";
+export const reducerName = "weatherforecast";
 const unloadedState: IWeatherForecastsState = { forecasts: [], isLoading: false };
 
 export function reducer(

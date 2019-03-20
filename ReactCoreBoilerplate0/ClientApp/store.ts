@@ -16,7 +16,7 @@ reducerRegistry.register("router", router);
 export interface ApplicationState {
     login: LoginStore.ILoginState;
     person: PersonStore.IPersonState;
-    weatherforecasts: WeatherForecastStore.IWeatherForecastsState;
+    weatherforecast: WeatherForecastStore.IWeatherForecastsState;
     counter: CounterStore.ICounterState;
     router: RouterState
 }

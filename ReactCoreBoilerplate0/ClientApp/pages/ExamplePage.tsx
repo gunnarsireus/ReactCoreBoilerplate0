@@ -104,7 +104,6 @@ class ExamplePage extends React.Component<Props, IState> {
     private async doSearch(term: string = "") {
         this.props.personSearchRequest({ term: term });
         const result = await apiClient.getHelper(`/api/Person/Search?term=${term}`);
-
         if (!result.hasErrors) {
             this.props.personSearchResponse(result.value)
         } else {

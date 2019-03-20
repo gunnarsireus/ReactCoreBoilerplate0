@@ -3,7 +3,7 @@ import { RouteComponentProps, withRouter } from "react-router";
 import { connect } from 'react-redux';
 import { ApplicationState }  from '../store';
 
-import registerReducer from "../login/reducer";
+import registerReducer from "../counter/reducer";
 
 registerReducer();
 

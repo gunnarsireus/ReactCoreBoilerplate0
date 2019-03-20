@@ -14,5 +14,5 @@ export const routes = <Switch>
     <AppRoute layout={AuthorizedLayout} exact path="/" component={HomePage} />
     <AppRoute layout={AuthorizedLayout} exact path="/example" component={ExamplePage} />
     <AppRoute layout={AuthorizedLayout} exact path="/counter" component={CounterPage} />
-    <AppRoute layout={AuthorizedLayout} exact path="/weatherforecasts" component={WeatherForecastsPage} /> 
+    <AppRoute layout={AuthorizedLayout} exact path="/weatherforecasts/:startDateIndex?" component={WeatherForecastsPage} /> 
 </Switch>;
