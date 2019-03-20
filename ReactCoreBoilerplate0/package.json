@@ -50,8 +50,8 @@
     "webpack-merge": "4.2.1"
   },
   "scripts": {
-    "build:dev": "node ./node_modules/webpack/bin/webpack.js --config webpack.config.vendor.js && node ./node_modules/webpack/bin/webpack.js --config webpack.config.js",
-    "build:prod": "node ./node_modules/webpack/bin/webpack.js --config webpack.config.vendor.js --env.prod=true && node ./node_modules/webpack/bin/webpack.js --config webpack.config.js --env.prod=true"
+    "build:dev": "rimraf ClientApp/dist && rimraf wwwroot/dist && node ./node_modules/webpack/bin/webpack.js --config webpack.config.vendor.js && node ./node_modules/webpack/bin/webpack.js --config webpack.config.js",
+    "build:prod": "rimraf ClientApp/dist && rimraf wwwroot/dist && node ./node_modules/webpack/bin/webpack.js --config webpack.config.vendor.js --env.prod=true && node ./node_modules/webpack/bin/webpack.js --config webpack.config.js --env.prod=true"
   },
   "dependencies": {
     "@babel/polyfill": "7.2.5",
