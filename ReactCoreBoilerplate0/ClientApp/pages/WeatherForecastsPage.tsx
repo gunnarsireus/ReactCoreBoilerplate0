@@ -1,13 +1,7 @@
 import * as React from 'react';
-import { Link, RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { ApplicationState }  from '../store';
-import { IWeatherForecastModel } from "@Models/IWeatherForecastModel";
-import { Helmet } from "react-helmet";
-import { PagingBar } from "@Components/shared/PagingBar";
-import Loader from "@Components/shared/Loader";
 import bind from 'bind-decorator';
-import { ModalComponent } from "@Components/shared/ModalComponent";
 import AwesomeDebouncePromise from "awesome-debounce-promise";
 import * as apiClient from "../helpers/apiHelpers"
 

@@ -7,7 +7,6 @@ import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
 import { createBrowserHistory } from 'history';
 import configureStore from './configureStore';
-import { ApplicationState }  from './store';
 import * as RoutesModule from './routes';
 let routes = RoutesModule.routes;
 import "@Styles/main.scss";

@@ -1,13 +1,12 @@
 ﻿import { ILoginModel } from "@Models/ILoginModel";
 import Loader from "@Components/shared/Loader";
-import { ApplicationState } from "../store";
 import { loginInit, loginRequest, loginResponse, loginSuccess, loginFailure } from "../login/actionCreators";
 import AccountService from "@Services/AccountService";
 import "@Styles/main.scss";
 import * as React from "react";
 import { Helmet } from "react-helmet";
 import { connect } from "react-redux";
-import { Redirect, RouteComponentProps, withRouter } from "react-router";
+import { Redirect, RouteComponentProps} from "react-router";
 import bind from 'bind-decorator';
 import { Form } from "@Components/shared/Form";
 import registerReducer from "../login/reducer";

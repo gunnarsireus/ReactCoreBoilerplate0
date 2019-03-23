@@ -1,8 +1,7 @@
 ﻿import "@Styles/main.scss";
 import * as React from "react";
-import { RouteComponentProps, withRouter } from "react-router";
+import { RouteComponentProps} from "react-router";
 import { IPersonModel } from "@Models/IPersonModel";
-import { ApplicationState } from "../store";
 import { Helmet } from "react-helmet";
 import { connect } from "react-redux";
 import { PagingBar } from "@Components/shared/PagingBar";
