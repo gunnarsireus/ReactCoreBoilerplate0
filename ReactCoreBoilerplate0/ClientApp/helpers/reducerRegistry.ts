@@ -14,7 +14,7 @@ class ReducerRegistry {
         this._reducers = { ...initialReducers };
     }
 
-    get reducers() {
+    getReducers() {
         return { ...this._reducers };
     }
 
@@ -25,7 +25,7 @@ class ReducerRegistry {
         this._reducers = { ...this._reducers, [name]: reducer };
 
         if (!this._emitChange) return;
-        this._emitChange(this.reducers);
+        this._emitChange(this.getReducers());
     }
 
     setChangeListener(listener: ChangeListener) {

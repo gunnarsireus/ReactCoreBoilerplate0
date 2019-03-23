@@ -2,15 +2,31 @@ import { createStore, applyMiddleware, compose, combineReducers, StoreEnhancer, 
 import thunk from 'redux-thunk';
 import { routerMiddleware, LOCATION_CHANGE } from 'connected-react-router';
 //var routerReducer = require("connected-react-router/lib/reducer");
-//import {routerReducer} from "react-router-redux";
+import reducerRegistry from "./helpers/reducerRegistry";
 import * as StoreModule from './store';
 import { ApplicationState, reducers } from './store';
 import { History } from 'history';
 
+function isClientSide(object:any):boolean {
+    return (typeof object !== 'undefined');
+}
+
 export default function configureStore(history: History, initialState?: ApplicationState) {
     // Build middleware. These are functions that can process the actions before they reach the store.
     let createStoreWithMiddleware;
-    if (initialState) {
+    if (isClientSide(initialState)) {
+        // Preserve initial state for not-yet-loaded reducers
+        const combine = (reducers) => {
+            const reducerNames = Object.keys(reducers);
+            Object.keys(initialState).forEach(item => {
+                if (reducerNames.indexOf(item) === -1) {
+                    reducers[item] = (state = null) => state;
+                }
+            });
+            return combineReducers(reducers);
+        };
+
+        const reducer = combine(reducerRegistry.getReducers());
         const Window = window as any;
         // If devTools is installed, connect to it
         const devToolsExtension = Window.__REDUX_DEVTOOLS_EXTENSION__ as () => StoreEnhancer;
