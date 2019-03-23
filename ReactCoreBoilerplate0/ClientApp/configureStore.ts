@@ -9,13 +9,22 @@ import { History } from 'history';
 
 export default function configureStore(history: History, initialState?: ApplicationState) {
     // Build middleware. These are functions that can process the actions before they reach the store.
-    const windowIfDefined = typeof window === 'undefined' ? null : window as any;
-    // If devTools is installed, connect to it
-    const devToolsExtension = windowIfDefined && windowIfDefined.__REDUX_DEVTOOLS_EXTENSION__ as () => StoreEnhancer;
-    const createStoreWithMiddleware = compose(
-        applyMiddleware(thunk, routerMiddleware(history)),
-        devToolsExtension ? devToolsExtension() : <S>(next: StoreEnhancerStoreCreator<S>) => next
-    )(createStore);
+    let createStoreWithMiddleware;
+    if (initialState) {
+        const Window = window as any;
+        // If devTools is installed, connect to it
+        const devToolsExtension = Window.__REDUX_DEVTOOLS_EXTENSION__ as () => StoreEnhancer;
+        createStoreWithMiddleware = compose(
+            applyMiddleware(thunk, routerMiddleware(history)),
+            devToolsExtension ? devToolsExtension() : <S>(next: StoreEnhancerStoreCreator<S>) => next
+        )(createStore);
+    }
+    else {
+        createStoreWithMiddleware = compose(
+            applyMiddleware(thunk, routerMiddleware(history)),
+            <S>(next: StoreEnhancerStoreCreator<S>) => next
+        )(createStore);
+    }
 
     // Combine all reducers and instantiate the app-wide store instance
     const allReducers = buildRootReducer(reducers, history);
