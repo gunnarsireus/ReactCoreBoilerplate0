@@ -44,17 +44,7 @@ export default function configureStore(history: History, initialState?: Applicat
     }
 
     // Combine all reducers and instantiate the app-wide store instance
-
     const store = createStoreWithMiddleware(allReducers, initialState as any) as Store<ApplicationState>;
-
-    // Enable Webpack hot module replacement for reducers
-    //if (module.hot) {
-    //    module.hot.accept('./store', () => {
-    //        const nextRootReducer = require<typeof StoreModule>('./store');
-    //        store.replaceReducer(buildRootReducer(nextRootReducer.reducers, history));
-    //    });
-    //}
-
     return store;
 }
 
