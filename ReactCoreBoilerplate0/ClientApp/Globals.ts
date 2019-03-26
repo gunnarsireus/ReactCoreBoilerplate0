@@ -62,7 +62,15 @@ export default class Globals {
         this.setSession({ public: { serviceUser } });
     }
 
-    public static get isAuthenticated(): boolean {
+    public static get isAuthenticated(): boolean {  
+        if (this.serviceUser === null) {  //Create serviceUser and make isAuthenticated = true
+            const session: INodeSession = {
+                public: {
+                    serviceUser: { login: "login" }
+                }
+            }
+            this.setSession(session)
+        }
         return this.serviceUser != null;
     }
 }
